@@ -15,6 +15,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
   @import "assets/css/base.css";
+  #app{
+    height: 1500px;
+  }
 </style>
