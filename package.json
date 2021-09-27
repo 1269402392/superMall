@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.21.4",
+    "better-scroll": "^1.13.4",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.6",
     "normalize.css": "^8.0.1",
