@@ -1,8 +1,8 @@
 <template>
   <div class="block">
     <el-carousel trigger="click" height="150px">
-      <el-carousel-item v-for="item in banners" :key="item.index">
-        <img :src="item.image" alt="" class="banner-img">
+      <el-carousel-item v-for="item in banners" :key="item.index" >
+        <img :src="item.image" alt="" @load="imageLoad" class="banner-img">
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -17,6 +17,21 @@
         default() {
           return []
         }
+      }
+    },
+    data() {
+      return {
+        isLoad: false
+      }
+    },
+    methods: {
+      imageLoad() {
+        if(!this.isLoad) {
+          this.$emit('swiperImageLoad');
+          this.isLoad = true;
+        }
+
+
       }
     }
   }
