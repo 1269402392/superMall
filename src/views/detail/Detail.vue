@@ -31,6 +31,7 @@
 
   import {getDetail, getRecommend, Goods, Shop, GoodsParam} from 'network/detail.js'
   import {itemListenerMixin} from "../../common/mixin";
+  import { mapActions } from 'vuex'
 
   export default {
     name: "Detail",
@@ -92,6 +93,7 @@
       })
     },
     methods: {
+      ...mapActions(['addCartList']),
       imageLoad() {
         this.$refs.scroll.refresh();
         //获取标题的offsetTop
@@ -129,6 +131,7 @@
         this.$refs.scroll.scrollTo(0,0)
       },
       addToCart() {
+        //获取购物车需要展示的信息
         const product = {}
         product.image = this.topImages[0]
         product.title = this.goods.title
@@ -136,7 +139,14 @@
         product.price = this.goods.price
         product.iid = this.iid
         product.realPrice = this.goods.realPrice
-        this.$store.dispatch('addCartList',product)
+        //添加到购物车
+        this.addCartList(product).then(res => {
+          this.$toast.shows(res, 1500)
+        })
+        /*this.$store.dispatch('addCartList',product).then(res => {
+          console.log(res);
+        })*/
+
       }
     },
     destroyed() {

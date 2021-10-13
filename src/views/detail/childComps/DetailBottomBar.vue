@@ -17,7 +17,7 @@
       </ul>
     </div>
     <div class="right-box">
-      <div><a href="##" @click="addToCart">加入购物车</a></div>
+      <div><a href="##" @click.prevent="addToCart">加入购物车</a></div>
       <div><a href="##">购买</a></div>
     </div>
   </div>

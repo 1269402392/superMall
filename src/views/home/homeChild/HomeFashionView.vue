@@ -44,6 +44,7 @@
         flex:1;
         img{
           width: 70px;
+          display: block;
         }
       }
     }
